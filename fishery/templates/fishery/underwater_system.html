@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <!-- 引入图标样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/simple-line-icons@2.5.5/css/simple-line-icons.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="{% static 'css/components.chunk.css' %}">
+    <link rel="stylesheet" href="{% static 'css/umi.css' %}">
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="theme-color" content="#343a40">
+
+    <title>海洋牧场监测可视化系统</title>
+</head>
+
+<body>
+    <div id="root">
+        <div id="page-container" class="null sidebar-o sidebar-dark page-header-dark side-scroll page-header-fixed main-content-boxed side-trans-enabled false">
+            <div class="v2board-nav-mask" style="display: none;"></div>
+            <nav id="sidebar">
+                <div class="smini-hidden bg-header-dark">
+                    <div class="content-header justify-content-lg-center bg-white-10"><a class="font-size-lg text-white" href="/fishery/homepage/"><span class="text-white-75">海洋牧场</span></a>
+                        <div class="d-lg-none"><a class="text-white ml-2" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0);"><i class="fa fa-times-circle"></i></a></div>
+                    </div>
+                </div>
+                <div class="content-side content-side-full">
+                    <ul class="nav-main">
+                        <li class="nav-main-heading">欢迎光临</li>
+                        <li class="nav-main-item"><a class="nav-main-link active"><i class="nav-main-link-icon si si-book-open"></i><span class="nav-main-link-name">主页</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/instruction/"><i class="nav-main-link-icon si si-book-open"></i><span class="nav-main-link-name">使用说明</span></a></li>
+                        <li class="nav-main-heading">功能</li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/guess/"><i class="nav-main-link-icon si si-question"></i><span class="nav-main-link-name">猜你所想</span></a></li>
+ 
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/main-info/"><i class="nav-main-link-icon si si-info"></i><span class="nav-main-link-name">主要信息</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/underwater-system/"><i class="nav-main-link-icon si si-drop"></i><span class="nav-main-link-name">水下系统</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/data-center/"><i class="nav-main-link-icon si si-graph"></i><span class="nav-main-link-name">数据中心</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/intelligence-center/"><i class="nav-main-link-icon si si-lightbulb"></i><span class="nav-main-link-name">智能中心</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/admin-management/"><i class="nav-main-link-icon si si-wrench"></i><span class="nav-main-link-name">管理员管理</span></a></li>
+                        
+                        <li class="nav-main-heading">用户</li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/user/"><i class="nav-main-link-icon si si-users"></i><span class="nav-main-link-name">用户中心</span></a></li>
+                        <li class="nav-main-heading">关于</li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/illustration/"><i class="nav-main-link-icon si si-book-open"></i><span class="nav-main-link-name">说明</span></a></li>
+ 
+
+                    </ul>
+                </div>
+                <div class="v2board-copyright">海洋牧场监测可视化系统 v1.0.0</div>
+            </nav>
+            <header id="page-header">
+                <div class="content-header">
+                    <div class="sidebar-toggle" style="display: none;"><button type="button" class="btn btn-primary mr-1 d-lg-none"><i class="fa fa-fw fa-bars"></i></button></div>
+                    <div class="v2board-container-title text-white">说明</div>
+                    <div>
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn btn-primary dropdown-button">
+                                <i class="far fa fa-user-circle"></i>
+                                <span class="d-none d-lg-inline ml-1">{{ user_info.username }}</span>
+                                <i class="fa fa-fw fa-angle-down ml-1"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right p-0 false">
+                                <div class="p-2">
+                                    <a class="dropdown-item" href="/fishery/user/">
+                                        <i class="far fa-fw fa-user mr-1"></i> 个人中心
+                                    </a>
+                                    <a class="dropdown-item" href="/fishery/login/">
+                                        <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> 登出
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main id="main-container">
+                <div class="content content-full">
+                    <!-- Underwater System Video and Details -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">水下系统监控</h3>
+                        </div>
+                        <div class="block-content">
+                            <video controls poster="{% static 'images/underwater-preview.jpg' %}" style="width: 100%;">
+                                <source src="{% static 'videos/underwater-demo.mp4' %}" type="video/mp4">
+                                您的浏览器不支持视频标签。
+                            </video>
+                            <p>这是实时监控视频流，展示当前水下环境和生物活动情况。</p>
+                        </div>
+                    </div>
+                    <!-- Interactive Tools for Underwater System -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">交互工具</h3>
+                        </div>
+                        <div class="block-content">
+                            <ul>
+                                <li><a href="#" class="btn btn-primary">启动一键式自动数据采集</a></li>
+                                <li><a href="#" class="btn btn-primary">启动一键式环境数据采集</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- User Reviews and Feedback -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">水下环境评分</h3>
+                        </div>
+                        <div class="block-content">
+                            <p>用户可以评价和反馈水下环境质量：</p>
+                            <div class="rating">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <button class="btn btn-info">提交评分</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

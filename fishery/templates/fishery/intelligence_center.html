@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <!-- 引入图标样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/simple-line-icons@2.5.5/css/simple-line-icons.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="{% static 'css/components.chunk.css' %}">
+    <link rel="stylesheet" href="{% static 'css/umi.css' %}">
+    <script src="{% static 'js/custom.js' %}"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="theme-color" content="#343a40">
+
+    <title>海洋牧场监测可视化系统</title>
+</head>
+
+<body>
+    <div id="root">
+        <div id="page-container" class="null sidebar-o sidebar-dark page-header-dark side-scroll page-header-fixed main-content-boxed side-trans-enabled false">
+            <div class="v2board-nav-mask" style="display: none;"></div>
+            <nav id="sidebar">
+                <div class="smini-hidden bg-header-dark">
+                    <div class="content-header justify-content-lg-center bg-white-10"><a class="font-size-lg text-white" href="/fishery/homepage/"><span class="text-white-75">海洋牧场</span></a>
+                        <div class="d-lg-none"><a class="text-white ml-2" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0);"><i class="fa fa-times-circle"></i></a></div>
+                    </div>
+                </div>
+                <div class="content-side content-side-full">
+                    <ul class="nav-main">
+                        <li class="nav-main-heading">欢迎光临</li>
+                        <li class="nav-main-item"><a class="nav-main-link active"><i class="nav-main-link-icon si si-book-open"></i><span class="nav-main-link-name">主页</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/instruction/"><i class="nav-main-link-icon si si-book-open"></i><span class="nav-main-link-name">使用说明</span></a></li>
+                        <li class="nav-main-heading">功能</li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/guess/"><i class="nav-main-link-icon si si-question"></i><span class="nav-main-link-name">猜你所想</span></a></li>
+      
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/main-info/"><i class="nav-main-link-icon si si-info"></i><span class="nav-main-link-name">主要信息</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/underwater-system/"><i class="nav-main-link-icon si si-drop"></i><span class="nav-main-link-name">水下系统</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/data-center/"><i class="nav-main-link-icon si si-graph"></i><span class="nav-main-link-name">数据中心</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/intelligence-center/"><i class="nav-main-link-icon si si-lightbulb"></i><span class="nav-main-link-name">智能中心</span></a></li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/admin-management/"><i class="nav-main-link-icon si si-wrench"></i><span class="nav-main-link-name">管理员管理</span></a></li>
+                        
+                        <li class="nav-main-heading">用户</li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/user/"><i class="nav-main-link-icon si si-users"></i><span class="nav-main-link-name">用户中心</span></a></li>
+                        <li class="nav-main-heading">关于</li>
+                        <li class="nav-main-item"><a class="nav-main-link false" href="/fishery/illustration/"><i class="nav-main-link-icon si si-book-open"></i><span class="nav-main-link-name">说明</span></a></li>
+ 
+
+                    </ul>
+                </div>
+                <div class="v2board-copyright">海洋牧场监测可视化系统 v1.0.0</div>
+            </nav>
+            <header id="page-header">
+                <div class="content-header">
+                    <div class="sidebar-toggle" style="display: none;"><button type="button" class="btn btn-primary mr-1 d-lg-none"><i class="fa fa-fw fa-bars"></i></button></div>
+                    <div class="v2board-container-title text-white">说明</div>
+                    <div>
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn btn-primary dropdown-button">
+                                <i class="far fa fa-user-circle"></i>
+                                <span class="d-none d-lg-inline ml-1">{{ user_info.username }}</span>
+                                <i class="fa fa-fw fa-angle-down ml-1"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right p-0 false">
+                                <div class="p-2">
+                                    <a class="dropdown-item" href="/fishery/user/">
+                                        <i class="far fa-fw fa-user mr-1"></i> 个人中心
+                                    </a>
+                                    <a class="dropdown-item" href="/fishery/login/">
+                                        <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> 登出
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main id="main-container">
+                <div class="content content-full">
+                    <!-- AI Insights Section -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">AI 洞察</h3>
+                        </div>
+                        <div class="block-content">
+                            <p>我们的智能系统利用最新的人工智能技术，提供以下洞察以优化海洋牧场的管理。</p>
+                            <div class="ai-insights">
+                                <div class="insight">
+                                    <i class="fas fa-robot"></i>
+                                    <h4>行为模式识别</h4>
+                                    <p>系统能识别海洋生物的行为模式，并预测潜在的健康问题。</p>
+                                </div>
+                                <div class="insight">
+                                    <i class="fas fa-seedling"></i>
+                                    <h4>环境影响分析</h4>
+                                    <p>评估外部环境因素对养殖区域的影响，自动调整管理措施。</p>
+                                </div>
+                                <div class="insight">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>产量预测</h4>
+                                    <p>基于历史数据和当前条件，预测未来的养殖产量。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Real-Time Decision Support -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">实时决策支持</h3>
+                        </div>
+                        <div class="block-content">
+                            <p>实时分析数据，提供即时决策支持，以增强运营效率和响应速度。</p>
+                            <button class="btn btn-info">分析最新数据</button>
+                        </div>
+                    </div>
+                    <!-- Predictive Maintenance -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">预测性维护</h3>
+                        </div>
+                        <div class="block-content">
+                            <p>使用先进的预测算法来预测和防止设备故障，减少停机时间。</p>
+                            <button class="btn btn-warning">启动设备诊断</button>
+                        </div>
+                    </div>
+                    <!-- Interactive AI Tools -->
+                    <div class="block block-rounded js-appear-enabled">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">交互式AI工具</h3>
+                        </div>
+                        <div class="block-content">
+                            <p>探索我们的交互式工具，这些工具可以根据您的输入提供定制的分析和建议。</p>
+                            <div class="interactive-tools">
+                                <a href="#" class="btn btn-success">数据探索器</a>
+                                <a href="#" class="btn btn-success">趋势分析器</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+        </div>
+    </div>
+</body>
+
+</html>
